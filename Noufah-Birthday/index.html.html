@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ميلاد السعادة - نوفه تشان</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Cairo:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --cream:#f5efe4;
+    --beige:#ede3d1;
+    --brown:#5b4636;
+    --terracotta:#b96d46;
+    --gold:#cba96b;
+    --orange:#d88a55;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(
+        135deg,
+        #f7f0e7,
+        #efe3d0
+    );
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:'Cairo',sans-serif;
+    color:var(--brown);
+    position:relative;
+}
+
+/* Paper Texture */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    opacity:.08;
+    background-image:
+    radial-gradient(#8c6b4c 0.5px, transparent 0.5px);
+    background-size:12px 12px;
+    pointer-events:none;
+}
+
+.page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    transition:.8s ease;
+}
+
+.hidden-page{
+    display:none;
+}
+
+.fade-in{
+    animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Falling leaves */
+.leaf{
+    position:fixed;
+    top:-50px;
+    font-size:20px;
+    animation:fall linear infinite;
+    z-index:1;
+    opacity:.3;
+}
+
+@keyframes fall{
+    to{
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+    }
+}
+
+.vintage-card{
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(203,169,107,.3);
+    box-shadow:
+        0px 15px 40px rgba(0,0,0,.12);
+    border-radius:24px;
+}
+
+.heading{
+    font-family:'Cormorant Garamond',serif;
+}
+
+.btn-vintage{
+    background:linear-gradient(
+    135deg,
+    var(--terracotta),
+    var(--orange)
+    );
+    color:white;
+    padding:14px 32px;
+    border-radius:100px;
+    transition:.4s;
+    box-shadow:0 10px 25px rgba(185,109,70,.3);
+}
+
+.btn-vintage:hover{
+    transform:translateY(-3px);
+}
+
+.letter{
+    line-height:2.4;
+    white-space:pre-line;
+}
+
+.music-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    z-index:1000;
+    background:white;
+    padding:10px 14px;
+    border-radius:999px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+    cursor:pointer;
+}
+
+.glow{
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(255,196,128,.15);
+    filter:blur(70px);
+}
+
+.glow1{
+    top:0;
+    right:0;
+}
+
+.glow2{
+    bottom:0;
+    left:0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+    <!-- Replace with your music file -->
+    <source src="birthday-music.mp3" type="audio/mp3">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+    🎵
+</button>
+
+<!-- PAGE 1 -->
+<section id="page1" class="page fade-in">
+
+    <div class="vintage-card p-8 md:p-14 text-center max-w-4xl relative z-10">
+
+        <div id="todayDate"
+             class="mb-8 text-lg md:text-xl text-amber-700">
+        </div>
+
+        <h1 class="heading text-4xl md:text-7xl font-bold leading-relaxed">
+            ميلاد السعاده و العمر المديد
+            <br>
+            نوفه تشان
+        </h1>
+
+        <p class="mt-8 text-lg md:text-xl opacity-80">
+            يوم جميل يحتفل بأجمل شخص ✨
+        </p>
+
+        <button
+                onclick="showPage2()"
+                class="btn-vintage mt-10 text-lg">
+            افتحي الرسالة 🤎
+        </button>
+
+    </div>
+
+</section>
+
+<!-- PAGE 2 -->
+<section id="page2" class="page hidden-page">
+
+    <div class="vintage-card max-w-5xl p-8 md:p-14 fade-in relative z-10">
+
+        <h2 class="heading text-4xl md:text-6xl font-bold text-center mb-10">
+            الى شخصي المفضل
+        </h2>
+
+        <div class="letter text-base md:text-xl text-center">
+
+نوفه تشان 🤎
+فكرت كثيرا عن ماذا سوف اهديك في هذا اليوم المميز مع ان كل الايام مميزه برفقتك و كل الايام معك تستحق احتفالا فكرت كثيرا 
+ولم اجد سوى هذه الرساله الدائمه لكي تحمل لك حبي و مشاعر الامتنان لك عزيزتي الغاليه نوف حتى مع كوني كاتبه ف انا اجد نفسي عاجزه عن 
+وصف ما في داخلي من كلمات فقط اتمنى لك كل الحب و السعاده و ان لا ارى فيك يوما حزينا 
+
+أتمنى لك عاماً مليئاً بالسعادة،
+والنجاحات،
+والضحكات التي لا تنتهي،
+وكل الأشياء الدافئة التي تشبه قلبك الجميل.
+
+كل عام وأنت بخير 🍂
+
+        </div>
+
+        <div class="mt-16 text-center">
+
+            <p id="footerDate"
+               class="text-amber-700 mb-4">
+            </p>
+
+            <p class="heading text-3xl md:text-4xl font-bold">
+                ميلاد الحب نوف
+            </p>
+
+        </div>
+
+        <div class="text-center mt-10">
+            <button
+                    onclick="showPage1()"
+                    class="btn-vintage">
+                العودة
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+// Date
+const date = new Date();
+
+const formattedDate =
+date.toLocaleDateString('ar-EG',{
+    weekday:'long',
+    year:'numeric',
+    month:'long',
+    day:'numeric'
+});
+
+document.getElementById("todayDate").textContent = formattedDate;
+document.getElementById("footerDate").textContent = formattedDate;
+
+// Page Switching
+function showPage2(){
+    document.getElementById("page1").classList.add("hidden-page");
+    document.getElementById("page2").classList.remove("hidden-page");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function showPage1(){
+    document.getElementById("page2").classList.add("hidden-page");
+    document.getElementById("page1").classList.remove("hidden-page");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+// Music
+const music = document.getElementById("bgMusic");
+
+function toggleMusic(){
+
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+}
+
+// Falling Leaves
+for(let i=0;i<15;i++){
+
+    const leaf=document.createElement("div");
+
+    leaf.classList.add("leaf");
+
+    leaf.innerHTML="🍂";
+
+    leaf.style.left=Math.random()*100+"vw";
+
+    leaf.style.animationDuration=
+    8+Math.random()*7+"s";
+
+    leaf.style.fontSize=
+    15+Math.random()*25+"px";
+
+    document.body.appendChild(leaf);
+}
+
+</script>
+
+</body>
+</html>
